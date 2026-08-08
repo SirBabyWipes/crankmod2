@@ -1,0 +1,34 @@
+{
+	"schemaVersion": 1,
+	"id": "crankmod2",
+	"version": "${version}",
+	"name": "Crank Mod 2",
+	"description": "Crank Mod 2, also known as Fent Mod 3",
+	"authors": [
+		"Me!"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/crankmod2/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.babywipes.crankmod2.CrankMod2"
+		],
+		"fabric-datagen": [
+			"net.babywipes.crankmod2.CrankMod2DataGenerator"
+		]
+	},
+	"mixins": [
+		"crankmod2.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.19.3",
+		"minecraft": "~26.2",
+		"java": ">=25",
+		"fabric-api": "*"
+	}
+}
