@@ -2,6 +2,7 @@ package net.babywipes.crankmod2.item;
 
 
 import net.babywipes.crankmod2.sounds.ModSounds;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -16,11 +17,11 @@ public class SpeakerItem extends Item {
 
     @Override
     public InteractionResult use(Level level, Player user, InteractionHand hand) {
-        if (!level.isClientSide()) {
+        if (level.isClientSide()) {
             return InteractionResult.PASS;
         }
 
-        level.playSound(null, user.blockPosition(), ModSounds.RIP, SoundSource.PLAYERS);
+        level.playSound(null, user.blockPosition(), ModSounds.RIP, SoundSource.MASTER);
         return super.use(level, user, hand);
     }
 }
