@@ -14,9 +14,8 @@ import net.minecraft.world.item.Item;
 import java.util.function.Function;
 
 public class ModItems {
-
     public static final Item MONKEY = registerItem("monkey", Item::new);
-
+    public static final Item SPEAKER = registerItem("speaker", SpeakerItem::new);
 
     private static Item registerItem(String name, Function<Item.Properties, Item> function) {
         return Registry.register(BuiltInRegistries.ITEM, Identifier.fromNamespaceAndPath(CrankMod2.MOD_ID, name),
