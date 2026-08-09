@@ -2,7 +2,6 @@ package net.babywipes.crankmod2.item;
 
 
 import net.babywipes.crankmod2.sounds.ModSounds;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;

@@ -17,6 +17,7 @@ public class ModCreativeModeTabs {
                     .title(Component.translatable("creativemodetab.crankmod2.crank_mod_items"))
                     .displayItems((parameters, output) -> {
                         output.accept(ModItems.MONKEY);
+                        output.accept(ModItems.SPEAKER);
                     })
                     .build());
 
