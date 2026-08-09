@@ -10,8 +10,10 @@ public class ModSounds {
     public static final SoundEvent RIP = registerSound("rip");
 
     public static SoundEvent registerSound(String id) {
-        return Registry.register(BuiltInRegistries.SOUND_EVENT, Identifier.fromNamespaceAndPath(CrankMod2.MOD_ID, id),
-                SoundEvent.createVariableRangeEvent(Identifier.fromNamespaceAndPath(CrankMod2.MOD_ID, id)));
+        Identifier identifier = Identifier.fromNamespaceAndPath(CrankMod2.MOD_ID, id);
+
+        return Registry.register(BuiltInRegistries.SOUND_EVENT, identifier,
+                SoundEvent.createVariableRangeEvent(identifier));
     }
 
     public static void initalize() {

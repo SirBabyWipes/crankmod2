@@ -16,12 +16,11 @@ public class SpeakerItem extends Item {
 
     @Override
     public InteractionResult use(Level level, Player user, InteractionHand hand) {
-        if (level.isClientSide()) {
+        if (!level.isClientSide()) {
             return InteractionResult.PASS;
         }
 
-        level.playSound(user, user.blockPosition(), ModSounds.RIP, SoundSource.PLAYERS);
-
+        level.playSound(null, user.blockPosition(), ModSounds.RIP, SoundSource.PLAYERS);
         return super.use(level, user, hand);
     }
 }
