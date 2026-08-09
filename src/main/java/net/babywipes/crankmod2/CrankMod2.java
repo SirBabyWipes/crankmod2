@@ -1,5 +1,6 @@
 package net.babywipes.crankmod2;
 
+import net.babywipes.crankmod2.creativemodetab.ModCreativeModeTabs;
 import net.babywipes.crankmod2.item.ModItems;
 import net.fabricmc.api.ModInitializer;
 
@@ -14,7 +15,8 @@ public class CrankMod2 implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		ModItems.registerModItems();
 
+		ModCreativeModeTabs.registerModCreativeModeTabs();
+		ModItems.registerModItems();
 	}
 }

@@ -25,9 +25,5 @@ public class ModItems {
 
     public static void registerModItems() {
         CrankMod2.LOGGER.info("Registering Mod Items for " + CrankMod2.MOD_ID);
-
-        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.COMBAT).register(output -> {
-            output.accept(MONKEY);
-        });
     }
 }
