@@ -20,7 +20,10 @@
 		],
 		"fabric-datagen": [
 			"net.babywipes.crankmod2.CrankMod2DataGenerator"
-		]
+		],
+        "client": [
+            "net.babywipes.crankmod2.CrankMod2Client"
+        ]
 	},
 	"mixins": [
 		"crankmod2.mixins.json"
