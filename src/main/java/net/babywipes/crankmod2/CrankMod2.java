@@ -1,6 +1,7 @@
 package net.babywipes.crankmod2;
 
 import net.babywipes.crankmod2.creativemodetab.ModCreativeModeTabs;
+import net.babywipes.crankmod2.entity.ModEntityTypes;
 import net.babywipes.crankmod2.item.ModItems;
 import net.babywipes.crankmod2.sounds.ModSounds;
 import net.fabricmc.api.ModInitializer;
@@ -17,6 +18,7 @@ public class CrankMod2 implements ModInitializer {
 		ModCreativeModeTabs.registerModCreativeModeTabs();
 		ModItems.registerModItems();
         ModSounds.initalize();
+		ModEntityTypes.registerModEntityTypes();
 	}
 }
 
