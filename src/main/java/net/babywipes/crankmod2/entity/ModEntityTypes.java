@@ -1,6 +1,7 @@
 package net.babywipes.crankmod2.entity;
 
 import net.babywipes.crankmod2.CrankMod2;
+import net.babywipes.crankmod2.entity.gorilla.GorillaEntity;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
