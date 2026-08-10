@@ -55,7 +55,7 @@ public class SpeakerManager {
     }    
 
     private static float calculateSoundVolume(float distance, float maxDistance) {
-        if (distance > maxDistance) { distance = maxDistance; }
+        distance = Math.min(distance, maxDistance);
         return (float)Math.pow((double)((distance - 0f) / (-maxDistance)) + 1f, 2d);
     }
 
