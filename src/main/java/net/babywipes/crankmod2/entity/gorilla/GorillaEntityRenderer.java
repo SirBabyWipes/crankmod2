@@ -15,6 +15,7 @@ public class GorillaEntityRenderer extends MobRenderer<GorillaEntity, GorillaEnt
         super(context, new GorillaEntityModel(context.bakeLayer(ModEntityModelLayers.GORILLA)), 0.375f); // 0.375 shadow radius
     }
 
+
     @Override
     public GorillaEntityRenderState createRenderState() {
         return new GorillaEntityRenderState();
@@ -23,5 +24,11 @@ public class GorillaEntityRenderer extends MobRenderer<GorillaEntity, GorillaEnt
     @Override
     public Identifier getTextureLocation(GorillaEntityRenderState state) {
         return TEXTURE;
+    }
+
+    @Override
+    public void extractRenderState(GorillaEntity entity, GorillaEntityRenderState state, float tickProgress) {
+        super.extractRenderState(entity, state, tickProgress);
+        state.chestPoundAnimationState.copyFrom((entity.poundChestAnimationState));
     }
 }

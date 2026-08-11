@@ -16,7 +16,7 @@ public class ModEntityTypes {
     public static final EntityType<GorillaEntity> GORILLA = register(
             "gorilla",
             EntityType.Builder.<GorillaEntity>of(GorillaEntity::new, MobCategory.MISC)
-                    .sized(0.75f, 1.75f)
+                    .sized(1.5f, 2.25f)
     );
 
     private static <T extends Entity> EntityType<T> register(String name, EntityType.Builder<T> builder) {
