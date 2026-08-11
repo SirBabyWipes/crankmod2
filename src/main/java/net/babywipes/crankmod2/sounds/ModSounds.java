@@ -5,6 +5,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.item.JukeboxSongPlayer;
 
 public class ModSounds {
     public static final SoundEvent RIP = registerSound("rip");
@@ -20,3 +21,4 @@ public class ModSounds {
         CrankMod2.LOGGER.info("REGISTERING " + CrankMod2.MOD_ID + " SOUNDS");
     }
 }
+
