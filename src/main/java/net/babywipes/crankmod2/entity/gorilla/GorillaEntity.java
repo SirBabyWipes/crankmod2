@@ -66,7 +66,7 @@ public class GorillaEntity extends Monster {
         super.onSyncedDataUpdated(data);
 
         if (data == CHESTPOUND) {
-            this.poundChestAnimationState.animateWhen(this.isDancing(), this.tickCount);
+            this.poundChestAnimationState.animateWhen(this.isChestPounding(), this.tickCount);
         }
     }
 
@@ -80,11 +80,11 @@ public class GorillaEntity extends Monster {
         builder.define(CHESTPOUND, false);
     }
 
-    public boolean isDancing() {
+    public boolean isChestPounding() {
         return entityData.get(CHESTPOUND);
     }
 
-    private void setDancing(boolean dancing) {
+    private void setChestPounding(boolean dancing) {
         entityData.set(CHESTPOUND, dancing);
     }
 
@@ -93,13 +93,13 @@ public class GorillaEntity extends Monster {
         super.tick();
 
         if (!level().isClientSide()) {
-            if (this.isDancing()) {
+            if (this.isChestPounding()) {
                 if (this.aniTimeLeft-- <= 0) {
-                    this.setDancing(false);
+                    this.setChestPounding(false);
                 }
             } else {
                 if (this.random.nextInt(2000) == 0) {
-                    this.setDancing(true);
+                    this.setChestPounding(true);
                     this.aniTimeLeft = 90;
                 }
             }
@@ -117,6 +117,6 @@ public class GorillaEntity extends Monster {
     protected void readAdditionalSaveData(ValueInput valueInput) {
         super.readAdditionalSaveData(valueInput);
         this.aniTimeLeft = valueInput.getInt("dancing_time_left").orElse(0);
-        this.setDancing(this.aniTimeLeft > 0);
+        this.setChestPounding(this.aniTimeLeft > 0);
     }
 }
