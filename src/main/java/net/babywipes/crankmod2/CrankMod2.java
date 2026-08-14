@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import net.babywipes.crankmod2.networking.ClientboundSpeakerPayload;
+import net.babywipes.crankmod2.networking.ClientboundVisibleEntityPayload;
 import net.babywipes.crankmod2.sounds.SpeakerManager;
 import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
 
@@ -23,6 +24,7 @@ public class CrankMod2 implements ModInitializer {
         ModSounds.initalize();
 		ModEntityTypes.registerAttributes();
         PayloadTypeRegistry.clientboundPlay().register(ClientboundSpeakerPayload.TYPE, ClientboundSpeakerPayload.CODEC);
+        PayloadTypeRegistry.clientboundPlay().register(ClientboundVisibleEntityPayload.TYPE, ClientboundVisibleEntityPayload.CODEC);
         SpeakerManager.initalize();
 	}
 }

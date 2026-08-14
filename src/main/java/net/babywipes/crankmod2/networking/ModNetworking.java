@@ -40,7 +40,7 @@ public class ModNetworking {
             }
         });
 
-        ClientPlayNetworking.registerReceiver(ClientboundVisibleEntityPayload.TYPE, (payload, context) -> {
+        ClientPlayNetworking.registerGlobalReceiver(ClientboundVisibleEntityPayload.TYPE, (payload, context) -> {
             VisibleEntityState state = payload.state();
             if (state.visible) {
                 NetworkingStatics.visibleEntityIds.add(Integer.valueOf(state.entityId));
@@ -52,5 +52,6 @@ public class ModNetworking {
 
     public static void initalizeServer() {
         PayloadTypeRegistry.clientboundPlay().register(ClientboundSpeakerPayload.TYPE, ClientboundSpeakerPayload.CODEC);
+        PayloadTypeRegistry.clientboundPlay().register(ClientboundVisibleEntityPayload.TYPE, ClientboundVisibleEntityPayload.CODEC);
     }
 }

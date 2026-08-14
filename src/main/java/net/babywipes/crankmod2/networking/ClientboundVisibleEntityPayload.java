@@ -8,10 +8,10 @@ import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.Identifier;
 
 public record ClientboundVisibleEntityPayload(VisibleEntityState state) implements CustomPacketPayload {
-    public static final Identifier STATE_ID = Identifier.fromNamespaceAndPath(CrankMod2.MOD_ID, "visible_entity_state");
+    public static final Identifier VISIBLE_ENTITY_STATE_ID = Identifier.fromNamespaceAndPath(CrankMod2.MOD_ID, "visible_entity_state");
 
-    public static final CustomPacketPayload.Type<ClientboundVisibleEntityPayload> TYPE =
-        new CustomPacketPayload.Type<>(STATE_ID);
+	public static final CustomPacketPayload.Type<ClientboundVisibleEntityPayload> TYPE =
+        new CustomPacketPayload.Type<>(VISIBLE_ENTITY_STATE_ID);
 
     public static final StreamCodec<RegistryFriendlyByteBuf, ClientboundVisibleEntityPayload> CODEC =
         StreamCodec.composite(VisibleEntityState.STREAM_CODEC, ClientboundVisibleEntityPayload::state, ClientboundVisibleEntityPayload::new);

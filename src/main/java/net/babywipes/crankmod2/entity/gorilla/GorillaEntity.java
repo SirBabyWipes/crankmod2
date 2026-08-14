@@ -19,6 +19,23 @@ import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 
 public class GorillaEntity extends Monster {
+    public class TempGoal extends HurtByTargetGoal {
+        public TempGoal(final PathfinderMob mob, final Class<?>... ignoreDamageFromTheseTypes) {
+            super(mob, ignoreDamageFromTheseTypes);
+        }
+
+        @Override
+        public void start() {
+            System.out.print("started!");
+            super.start();
+        }
+
+        @Override
+        public void stop() {
+            System.out.println("stopped!");
+            super.stop();
+        }
+    }
     public GorillaEntity(Level world) {
         this(ModEntityTypes.GORILLA, world);
     }
@@ -40,8 +57,8 @@ public class GorillaEntity extends Monster {
         this.goalSelector.addGoal(0, new MeleeAttackGoal(this, 2, true));
         this.goalSelector.addGoal(1, new RandomStrollGoal(this, 1));
 
-        this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
-        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
+        this.targetSelector.addGoal(1, new TempGoal(this));
+        //this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
     }
 
 
