@@ -18,7 +18,7 @@ public class VisibleEntityState {
         }
 
         public void encode(final ByteBuf output, final VisibleEntityState value) {
-            output.writeByte(value.entityId);
+            output.writeInt(value.entityId);
             output.writeBoolean(value.visible);
         }
     }; 

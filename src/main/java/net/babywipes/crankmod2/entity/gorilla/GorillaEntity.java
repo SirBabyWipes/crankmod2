@@ -1,9 +1,16 @@
 package net.babywipes.crankmod2.entity.gorilla;
 
 import net.babywipes.crankmod2.entity.ModEntityTypes;
+import net.babywipes.crankmod2.entity.VisibleEntityState;
+import net.babywipes.crankmod2.networking.ClientboundVisibleEntityPayload;
+import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
+import net.minecraft.network.protocol.status.ServerStatus.Players;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.server.level.PlayerMap;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.AnimationState;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.PathfinderMob;
@@ -26,14 +33,24 @@ public class GorillaEntity extends Monster {
 
         @Override
         public void start() {
-            System.out.print("started!");
             super.start();
+            updateTargetVisible(true);
         }
 
         @Override
         public void stop() {
-            System.out.println("stopped!");
+            updateTargetVisible(false);
             super.stop();
+        }
+
+        private void updateTargetVisible(boolean visible) {
+            if (! (this.targetMob instanceof ServerPlayer)) {
+                return;
+            }
+            int id = this.mob.getId();
+            var payload = new ClientboundVisibleEntityPayload(new VisibleEntityState(id, visible));
+            ServerPlayer player = (ServerPlayer)this.targetMob;
+            ServerPlayNetworking.send(player, payload);
         }
     }
     public GorillaEntity(Level world) {

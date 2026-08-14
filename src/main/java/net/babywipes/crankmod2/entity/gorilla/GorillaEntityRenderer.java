@@ -2,6 +2,7 @@ package net.babywipes.crankmod2.entity.gorilla;
 
 import net.babywipes.crankmod2.CrankMod2;
 import net.babywipes.crankmod2.client.ModEntityModelLayers;
+import net.babywipes.crankmod2.networking.NetworkingStatics;
 import net.minecraft.client.color.block.BlockColors;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
@@ -30,5 +31,6 @@ public class GorillaEntityRenderer extends MobRenderer<GorillaEntity, GorillaEnt
     public void extractRenderState(GorillaEntity entity, GorillaEntityRenderState state, float tickProgress) {
         super.extractRenderState(entity, state, tickProgress);
         state.chestPoundAnimationState.copyFrom((entity.poundChestAnimationState));
+        state.isInvisible = !NetworkingStatics.visibleEntityIds.contains(Integer.valueOf(entity.getId()));
     }
 }
