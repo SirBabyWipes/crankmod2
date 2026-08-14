@@ -2,6 +2,7 @@ package net.babywipes.crankmod2.networking;
 
 import com.google.common.graph.Network;
 
+import net.babywipes.crankmod2.entity.VisibleEntityState;
 import net.babywipes.crankmod2.sounds.SpeakerState;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
@@ -36,6 +37,15 @@ public class ModNetworking {
                 //}
                 instance.setVolume(packet.volume);
                 return;
+            }
+        });
+
+        ClientPlayNetworking.registerReceiver(ClientboundVisibleEntityPayload.TYPE, (payload, context) -> {
+            VisibleEntityState state = payload.state();
+            if (state.visible) {
+                NetworkingStatics.visibleEntityIds.add(Integer.valueOf(state.entityId));
+            } else {
+                NetworkingStatics.visibleEntityIds.remove(Integer.valueOf(state.entityId));
             }
         });
     }

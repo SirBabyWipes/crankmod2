@@ -21,13 +21,9 @@ public class CrankMod2 implements ModInitializer {
 		ModCreativeModeTabs.registerModCreativeModeTabs();
 		ModItems.registerModItems();
         ModSounds.initalize();
-		//ModEntityTypes.registerModEntityTypes();
 		ModEntityTypes.registerAttributes();
-		//ModEntityModelLayers.registerModelLayers();
-		//EntityRenderers.register(ModEntityTypes.GORILLA, GorillaEntityRenderer::new);
         PayloadTypeRegistry.clientboundPlay().register(ClientboundSpeakerPayload.TYPE, ClientboundSpeakerPayload.CODEC);
         SpeakerManager.initalize();
-        //ModNetworking.initalizeServer();
 	}
 }
 

@@ -1,6 +1,8 @@
 package net.babywipes.crankmod2.networking;
 
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 
 import net.babywipes.crankmod2.sounds.ModSounds;
 import net.babywipes.crankmod2.sounds.SpeakerSoundInstance;
@@ -13,6 +15,8 @@ import net.fabricmc.api.Environment;
 public class NetworkingStatics {
     public static final SpeakerSoundInstance speakerInstance = new SpeakerSoundInstance(ModSounds.RIP, SoundSource.MUSIC);
     public static final HashMap<Integer, SpeakerSoundInstance> speakerInstances = new HashMap<>();
+
+    public static final Set<Integer> visibleEntityIds = new HashSet<>();
 
     public static SpeakerSoundInstance getNewSpeakerInstance() {
         return new SpeakerSoundInstance(ModSounds.RIP, SoundSource.MASTER);
