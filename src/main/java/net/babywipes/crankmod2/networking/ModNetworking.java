@@ -5,7 +5,6 @@ import com.google.common.graph.Network;
 import net.babywipes.crankmod2.entity.VisibleEntityState;
 import net.babywipes.crankmod2.sounds.SpeakerState;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
-import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.sounds.SoundManager;
 
@@ -48,10 +47,5 @@ public class ModNetworking {
                 NetworkingStatics.visibleEntityIds.remove(Integer.valueOf(state.entityId));
             }
         });
-    }
-
-    public static void initalizeServer() {
-        PayloadTypeRegistry.clientboundPlay().register(ClientboundSpeakerPayload.TYPE, ClientboundSpeakerPayload.CODEC);
-        PayloadTypeRegistry.clientboundPlay().register(ClientboundVisibleEntityPayload.TYPE, ClientboundVisibleEntityPayload.CODEC);
     }
 }

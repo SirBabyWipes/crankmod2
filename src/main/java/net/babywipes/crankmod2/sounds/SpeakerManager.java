@@ -18,10 +18,8 @@ public class SpeakerManager {
 
     private static Stack<Integer> removeStack = new Stack<>();
     private static HashMap<Integer, SpeakerPlayingInstance> instanceMap = new HashMap<>();
-    private static MinecraftServer serv;
     public static void initalize() {
         ServerTickEvents.END_SERVER_TICK.register((server) -> {
-            serv = server;
             instanceMap.forEach((id, instance) -> {
                 ServerPlayer holder = server.getPlayerList().getPlayerByName(instance.playerName()); 
                 if (holder == null) {
